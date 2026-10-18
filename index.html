@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A complete, searchable Markdown learning guide with examples and a live playground.">
+<title>Markbase — Learn Markdown</title>
+<style>
+:root{--bg:#0b1020;--panel:#111a2e;--panel2:#172239;--text:#e8edf7;--muted:#9ba9c4;--line:#263450;--accent:#8aa7ff;--green:#74e0b0;--code:#080d18;--shadow:0 16px 50px #0003}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--accent)}button,input,textarea{font:inherit}button{cursor:pointer}.top{height:68px;display:flex;align-items:center;gap:18px;padding:0 26px;border-bottom:1px solid var(--line);background:#0b1020ee;position:sticky;top:0;z-index:5;backdrop-filter:blur(16px)}.brand{font-size:20px;font-weight:800;letter-spacing:-.7px;white-space:nowrap}.brand span{color:var(--accent)}.tag{color:var(--muted);font-size:12px;border:1px solid var(--line);padding:3px 8px;border-radius:99px}.search{max-width:600px;flex:1;margin:auto;position:relative}.search input{width:100%;padding:11px 14px 11px 40px;background:var(--panel);border:1px solid var(--line);border-radius:11px;color:var(--text);outline:none}.search input:focus{border-color:var(--accent)}.search:before{content:"⌕";position:absolute;left:14px;top:5px;font-size:25px;color:var(--muted)}.layout{display:grid;grid-template-columns:260px minmax(0,850px) 190px;gap:30px;max-width:1500px;margin:auto;padding:28px 26px}.sidebar{position:sticky;top:92px;height:calc(100vh - 115px);overflow:auto;padding-right:8px}.navgroup{margin:0 0 22px}.navgroup h4{color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;font-size:10px;margin:0 0 8px 10px}.navbtn{display:block;width:100%;border:0;text-align:left;color:var(--muted);background:transparent;padding:8px 10px;border-radius:8px;font-size:13px}.navbtn:hover,.navbtn.active{background:var(--panel2);color:var(--text)}.navbtn.active{box-shadow:inset 2px 0 var(--accent)}main{min-width:0}.eyebrow{color:var(--green);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px}.hero{padding:20px 0 30px;border-bottom:1px solid var(--line);margin-bottom:28px}.hero h1{font-size:clamp(36px,5vw,56px);line-height:1.08;letter-spacing:-2px;margin:10px 0 16px}.hero p{font-size:17px;color:var(--muted);max-width:690px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{background:var(--accent);color:#0b1020;border:0;border-radius:9px;padding:10px 14px;font-weight:750}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}.stat{padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.stat b{display:block;font-size:20px}.stat small{color:var(--muted)}h2{font-size:28px;letter-spacing:-.7px;margin:34px 0 10px}h3{font-size:20px;margin:25px 0 8px}p{margin:10px 0 16px}li{margin:6px 0}.callout{border:1px solid #33466c;border-left:3px solid var(--accent);background:#111c33;padding:14px 16px;border-radius:9px;margin:18px 0}.callout.good{border-color:#235b4d;border-left-color:var(--green);background:#0e2525}pre{background:var(--code);border:1px solid var(--line);padding:16px;border-radius:10px;overflow:auto;color:#dbe6ff;font-size:13px;line-height:1.65}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#1a2740;padding:2px 5px;border-radius:4px;font-size:.92em}pre code{background:none;padding:0}.example{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 20px}.example>div{min-width:0}.label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}.rendered{background:#f7f8fc;color:#222a3b;border-radius:10px;padding:14px;min-height:80px}.rendered h1,.rendered h2,.rendered h3{color:#1b2740;margin:8px 0}.rendered table{border-collapse:collapse;width:100%}.rendered th,.rendered td{border:1px solid #cbd2df;padding:6px;text-align:left}.rendered blockquote{border-left:3px solid #8aa7ff;padding-left:12px;color:#536079}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.card{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:16px}.card h3{margin:0 0 6px;font-size:16px}.card p{color:var(--muted);font-size:13px;margin:0}.pill{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:2px 8px;font-size:11px;color:var(--muted);margin-bottom:8px}.right{position:sticky;top:100px;align-self:start}.right h4{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}.right a{display:block;color:var(--muted);font-size:12px;text-decoration:none;margin:9px 0}.right a:hover{color:var(--accent)}.editor{display:grid;grid-template-columns:1fr 1fr;gap:12px}.editor textarea{width:100%;min-height:300px;resize:vertical;background:var(--code);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:14px;outline:none}.editor .rendered{min-height:300px;overflow:auto}.toolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:14px 0}.toolbar small{color:var(--muted)}.result{border-bottom:1px solid var(--line);padding:12px 8px;cursor:pointer}.result:hover{background:var(--panel)}.result b{display:block}.result small{color:var(--muted)}.hidden{display:none!important}.footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:12px;margin-top:45px}.mobile-menu{display:none}.empty{padding:35px 0;color:var(--muted)}@media(max-width:1100px){.layout{grid-template-columns:220px minmax(0,1fr)}.right{display:none}}@media(max-width:700px){.top{padding:0 13px;gap:10px}.tag{display:none}.mobile-menu{display:block;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px}.layout{display:block;padding:18px 16px}.sidebar{display:none;position:fixed;z-index:8;left:10px;top:74px;bottom:10px;height:auto;width:260px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:var(--shadow)}.sidebar.open{display:block}.hero h1{letter-spacing:-1.4px}.stats{grid-template-columns:1fr 1fr}.example,.editor{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.search input{font-size:13px}.brand{font-size:17px}}
+</style>
+</head>
+<body>
+<header class="top"><button class="mobile-menu" id="menuBtn" aria-label="Toggle navigation">☰</button><div class="brand">mark<span>base</span></div><span class="tag">LEARNING LIBRARY · POC</span><div class="search"><input id="search" type="search" placeholder="Search Markdown, syntax, examples…  ( / )" autocomplete="off" aria-label="Search documentation"></div><button class="btn secondary" id="playTop">Playground ↗</button></header>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="Documentation navigation"></aside>
+<main id="content"></main>
+<aside class="right" id="toc"><h4>On this page</h4><div id="tocLinks"></div><h4 style="margin-top:28px">Official references</h4><a href="https://spec.commonmark.org/" target="_blank" rel="noreferrer">CommonMark spec ↗</a><a href="https://github.github.com/gfm/" target="_blank" rel="noreferrer">GitHub Flavored Markdown ↗</a><a href="https://docs.github.com/en/get-started/writing-on-github" target="_blank" rel="noreferrer">GitHub writing guide ↗</a></aside>
+</div>
+<script>
+const docs=[
+{id:"start",group:"Start here",title:"Welcome to Markdown",desc:"Understand Markdown and how to use this guide.",level:"Beginner",body:`<div class="hero"><div class="eyebrow">Your Markdown field guide</div><h1>Write clearly.<br><span style="color:var(--accent)">Publish anywhere.</span></h1><p>Learn Markdown from your first heading to practical documentation workflows. Explore examples, compare syntax with rendered output, search this guide, and experiment in the built-in playground.</p><div class="hero-actions"><button class="btn" onclick="navigate('basics')">Start learning →</button><button class="btn secondary" onclick="navigate('playground')">Open playground</button></div><div class="stats"><div class="stat"><b>10+</b><small>Core topics</small></div><div class="stat"><b>Live</b><small>Markdown preview</small></div><div class="stat"><b>Offline</b><small>Content lives here</small></div></div></div>
+<h2>What is Markdown?</h2><p>Markdown is a lightweight markup language that lets you format plain text using readable punctuation. You write a text file, usually ending in <code>.md</code> or <code>.markdown</code>, and a Markdown processor converts it into HTML or another output format.</p><div class="callout good"><b>Why it is useful</b><br>Markdown is readable even before rendering, works well with Git, and is widely used for README files, documentation, notes, issues, and technical writing.</div>
+<h2>Choose your path</h2><div class="cards"><div class="card"><span class="pill">BEGINNER</span><h3>Learn the basics</h3><p>Headings, paragraphs, emphasis, lists, links and images.</p><p><a href="#" onclick="navigate('basics');return false">Start with syntax →</a></p></div><div class="card"><span class="pill">PRACTICAL</span><h3>Build real documents</h3><p>Create a README, add code samples, tables, links and images.</p><p><a href="#" onclick="navigate('recipes');return false">Explore recipes →</a></p></div><div class="card"><span class="pill">REFERENCE</span><h3>Look up syntax</h3><p>Find patterns quickly with the cheat sheet and search.</p><p><a href="#" onclick="navigate('cheatsheet');return false">Open cheat sheet →</a></p></div><div class="card"><span class="pill">PRACTICE</span><h3>Experiment safely</h3><p>Write Markdown and inspect the preview instantly.</p><p><a href="#" onclick="navigate('playground');return false">Try it now →</a></p></div></div>
+<h2>How to use this site</h2><ol><li>Follow the sidebar in order if you are new.</li><li>Use search to jump to a term or example.</li><li>Copy a syntax sample and change it to fit your document.</li><li>Check the dialect note when output differs between tools.</li></ol>
+<h2>Important distinction</h2><p>“Markdown” is a family of related implementations, not one perfectly identical feature set. <b>CommonMark</b> defines a standardized core; <b>GitHub Flavored Markdown (GFM)</b> adds features such as tables, task lists, strikethrough and autolinks. Other tools may add their own extensions.</p>`},
+{id:"basics",group:"Learn the syntax",title:"Basic syntax",desc:"The building blocks: headings, paragraphs, emphasis, lists and quotes.",level:"Beginner",body:`<p>Markdown uses a small set of characters to describe document structure. The examples below show source text and a simplified preview.</p>
+<h2>Headings</h2><p>Use one to six hash characters at the start of a line. A space after the hashes is recommended.</p><div class="example"><div><div class="label">Markdown source</div><pre><code># Page title
+## Main section
+### Subsection
+#### Smaller heading</code></pre></div><div><div class="label">Rendered result</div><div class="rendered"><h1>Page title</h1><h2>Main section</h2><h3>Subsection</h3><h4>Smaller heading</h4></div></div></div><p>Use headings in a logical hierarchy. Do not choose a heading level just to get a particular font size.</p>
+<h2>Paragraphs and line breaks</h2><p>A paragraph is one or more lines of text. Separate paragraphs with a blank line. A single newline may be treated as a space by many Markdown processors. For a hard line break, CommonMark supports two trailing spaces or a backslash before the newline; check your target renderer.</p><pre><code>First paragraph.
+
+Second paragraph.
+
+Line one\\
+Line two</code></pre>
+<h2>Emphasis</h2><div class="example"><div><div class="label">Source</div><pre><code>*italic*
+_italic_
+
+**bold**
+__bold__
+
+***bold and italic***
+~~strikethrough~~</code></pre></div><div><div class="label">Result</div><div class="rendered"><p><em>italic</em><br><em>italic</em></p><p><strong>bold</strong><br><strong>bold</strong></p><p><strong><em>bold and italic</em></strong></p><p><del>strikethrough</del> <small>(GFM)</small></p></div></div></div>
+<h2>Lists</h2><h3>Unordered list</h3><pre><code>- First item
+- Second item
+  - Nested item
+  - Another nested item</code></pre><ul><li>First item</li><li>Second item<ul><li>Nested item</li><li>Another nested item</li></ul></li></ul><h3>Ordered list</h3><pre><code>1. First step
+2. Second step
+3. Third step</code></pre><ol><li>First step</li><li>Second step</li><li>Third step</li></ol><p>Indent continuation lines and nested lists consistently. Exact indentation rules can vary by construct and implementation.</p>
+<h2>Blockquotes</h2><pre><code>&gt; Markdown keeps writing readable.
+&gt;
+&gt; You can quote multiple paragraphs.</code></pre><blockquote>Markdown keeps writing readable.<br><br>You can quote multiple paragraphs.</blockquote>
+<h2>Horizontal rules</h2><pre><code>---
+***
+___</code></pre><p>Three or more hyphens, asterisks or underscores on a line create a thematic break in CommonMark. Avoid ambiguous lines made of punctuation when you intend a horizontal rule.</p>`},
+{id:"links",group:"Learn the syntax",title:"Links and images",desc:"Link to websites, sections and files; embed images accessibly.",level:"Beginner",body:`<h2>Links</h2><p>Put the link text in square brackets and the destination in parentheses.</p><pre><code>[CommonMark specification](https://spec.commonmark.org/)
+
+[Jump to a section](#images)
+
+[Link with a title](https://example.com "Example website")</code></pre><p>Reference-style links keep repeated destinations tidy:</p><pre><code>Read the [official guide][guide].
+
+[guide]: https://docs.github.com/en/get-started/writing-on-github</code></pre><p>Use descriptive link text. “Read the installation guide” is more useful than “click here.” Link targets and fragment IDs can behave differently across platforms.</p>
+<h2>Images</h2><pre><code>![A descriptive text alternative](images/diagram.png)
+
+![Architecture diagram](diagram.png "System architecture")</code></pre><p>Image syntax resembles link syntax with an exclamation mark at the beginning. The alt text should communicate the image's meaning to users who cannot see it.</p><h2>Linking an image</h2><pre><code>[![Project logo](logo.png)](https://example.com)</code></pre><h2>Relative paths</h2><p>In a repository, a relative image path is usually resolved relative to the Markdown file. A path that works in a repository may not work in a hosted editor or another publishing system.</p><div class="callout"><b>Accessibility tip</b><br>Do not use a filename as alt text by default. Describe the useful information in the image, or use empty alt text only when the image is purely decorative and the renderer supports that convention.</div>`},
+{id:"code",group:"Learn the syntax",title:"Code and escaping",desc:"Inline code, fenced code blocks, syntax hints and literal characters.",level:"Beginner",body:`<h2>Inline code</h2><p>Use backticks for a short command, variable, filename or code fragment.</p><pre><code>Run \`go test ./...\` before submitting.
+
+The config is stored in \`app.yaml\`.</code></pre><p>For text that contains a backtick, use a longer run of backticks around the span.</p>
+<h2>Fenced code blocks</h2><pre><code>\`\`\`bash
+mkdir markdown-demo
+cd markdown-demo
+touch README.md
+\`\`\`</code></pre><p>Use three or more backticks or tildes on a line to start a fenced block, then close it with a matching fence. The optional word after the opening fence is a language hint; rendering and syntax highlighting depend on the host.</p>
+<h2>Language labels</h2><pre><code>\`\`\`go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, Markdown!")
+}
+\`\`\`</code></pre><h2>Escaping special characters</h2><p>Use a backslash to display many Markdown punctuation characters literally when they would otherwise be interpreted as syntax.</p><pre><code>\\*This is not italic\\*
+\\# This is not a heading
+Show a literal bracket: \\[text\\]</code></pre><p>Backslash escapes apply to a defined set of punctuation characters; they are not a general-purpose escape mechanism in every context.</p>
+<h2>Indentation and nested code</h2><p>Indented code blocks are supported in CommonMark, but fenced code blocks are often clearer and allow language labels. Be careful when nesting lists and code blocks because indentation determines where the block belongs.</p>`},
+{id:"tables",group:"Learn the syntax",title:"Tables and task lists",desc:"Create structured data and checklists using common extensions.",level:"Intermediate",body:`<h2>Tables</h2><p>Pipe tables are supported by GitHub Flavored Markdown, but they are not part of the CommonMark core syntax.</p><pre><code>| Tool | Purpose | Language |
+| --- | --- | --- |
+| Git | Version control | — |
+| Go | Programming | Go |
+| Docker | Containers | YAML / CLI |</code></pre><div class="rendered"><table><thead><tr><th>Tool</th><th>Purpose</th><th>Language</th></tr></thead><tbody><tr><td>Git</td><td>Version control</td><td>—</td></tr><tr><td>Go</td><td>Programming</td><td>Go</td></tr><tr><td>Docker</td><td>Containers</td><td>YAML / CLI</td></tr></tbody></table></div><p>Use a colon in the separator row for alignment in GFM:</p><pre><code>| Left | Center | Right |
+| :--- | :---: | ---: |
+| A | B | C |</code></pre>
+<h2>Task lists</h2><pre><code>- [x] Write the introduction
+- [x] Add examples
+- [ ] Review links
+- [ ] Publish documentation</code></pre><p>Task list checkboxes are a GFM extension. They may be interactive on GitHub but not in every renderer.</p>
+<h2>Strikethrough</h2><pre><code>~~This item is deprecated.~~</code></pre><p>Strikethrough is also supported by GFM and many other implementations, but not by the CommonMark core specification.</p>
+<h2>Autolinks</h2><p>GFM automatically recognizes many bare URLs and email addresses. To ensure predictable behavior across tools, use explicit link syntax when portability matters.</p>`},
+{id:"advanced",group:"Beyond the basics",title:"Advanced syntax",desc:"Reference links, footnotes, definitions, HTML and portability.",level:"Advanced",body:`<h2>Reference-style links</h2><pre><code>For details, see the [specification][spec].
+
+[spec]: https://spec.commonmark.org/ "CommonMark"</code></pre><p>Reference definitions can make long documents easier to maintain, particularly when the same URL is used many times.</p>
+<h2>HTML inside Markdown</h2><p>Some Markdown processors allow raw HTML to be included in a document. Supported tags, block behavior and sanitization policies vary. Never assume arbitrary HTML or embedded scripts will be rendered or allowed.</p><pre><code>&lt;details&gt;
+  &lt;summary&gt;Show more&lt;/summary&gt;
+
+  Extra information goes here.
+&lt;/details&gt;</code></pre><p>This collapsible pattern works in some renderers, including common GitHub contexts, but is not a portable CommonMark feature.</p>
+<h2>Footnotes and definition lists</h2><p>These are popular extensions, not part of the CommonMark core.</p><pre><code>A statement with a note.[^note]
+
+[^note]: The note text goes here.</code></pre><p>Check whether your target platform supports the syntax before relying on it.</p>
+<h2>Escaping and precedence</h2><p>Markdown is parsed in context: asterisks inside words, punctuation next to delimiters, indentation and nested blocks can affect interpretation. When formatting is surprising, reduce the example to a small reproducible snippet and test it in the same renderer used for publishing.</p>
+<h2>Portability checklist</h2><ul><li>Prefer CommonMark syntax for content that must render widely.</li><li>Label extensions such as tables, task lists, footnotes and math.</li><li>Preview content on the actual publishing platform.</li><li>Avoid relying on raw HTML for essential meaning.</li><li>Keep links and image paths relative where appropriate.</li></ul>`},
+{id:"dialects",group:"Beyond the basics",title:"Markdown flavors",desc:"Understand CommonMark, GFM and tool-specific extensions.",level:"Intermediate",body:`<h2>Why flavors exist</h2><p>Markdown implementations evolved to meet different needs. Two tools may render the same source differently, particularly around tables, line breaks, HTML, task lists and extensions.</p><div class="cards"><div class="card"><h3>CommonMark</h3><p>A clearly specified, standardized core syntax intended to reduce ambiguity.</p><p><a href="https://spec.commonmark.org/" target="_blank" rel="noreferrer">Official specification ↗</a></p></div><div class="card"><h3>GitHub Flavored Markdown</h3><p>CommonMark plus GitHub-specific additions such as tables, task lists, strikethrough and autolinks.</p><p><a href="https://github.github.com/gfm/" target="_blank" rel="noreferrer">GFM specification ↗</a></p></div><div class="card"><h3>Tool-specific extensions</h3><p>Documentation generators and note-taking apps may add admonitions, math, diagrams, front matter or custom components.</p></div><div class="card"><h3>MDX</h3><p>A related format that combines Markdown with JSX components in supported React-based toolchains. It is not plain Markdown.</p></div></div>
+<h2>Choosing syntax</h2><ul><li><b>README shared across platforms:</b> prefer common, simple syntax.</li><li><b>GitHub project documentation:</b> GFM features can be useful.</li><li><b>Static documentation site:</b> check the site's supported Markdown parser and plugins.</li><li><b>Knowledge base or notes app:</b> check that app's dialect, especially for embeds and math.</li></ul>
+<div class="callout"><b>Rule of thumb</b><br>Markdown source is portable; extensions may not be. If a feature is essential, document the renderer requirement.</div>`},
+{id:"recipes",group:"Practical guides",title:"Practical recipes",desc:"Copy-ready patterns for README files, guides and project notes.",level:"Practical",body:`<h2>README starter template</h2><pre><code># Project Name
+
+One sentence explaining what this project does.
+
+## Features
+- Feature one
+- Feature two
+
+## Requirements
+- Runtime or dependency
+- Supported operating system
+
+## Installation
+\`\`\`bash
+git clone https://example.com/your/project.git
+cd project
+\`\`\`
+
+## Usage
+\`\`\`bash
+./run.sh
+\`\`\`
+
+## Configuration
+| Variable | Description | Required |
+| --- | --- | --- |
+| APP_ENV | Runtime environment | Yes |
+
+## Troubleshooting
+Describe common errors and their solutions.
+
+## Contributing
+Explain how to propose changes.
+
+## License
+State the applicable license.</code></pre>
+<h2>Technical runbook template</h2><pre><code># Runbook: Service Name
+
+## Purpose
+What this service does and who owns it.
+
+## Symptoms
+- Observable symptom
+- Alert or error message
+
+## Checks
+1. Check service health.
+2. Review relevant logs.
+3. Verify dependencies.
+
+## Recovery
+Document safe, approved recovery steps.
+
+## Validation
+Explain how to confirm service health.
+
+## Escalation
+Owner, contact route and required evidence.</code></pre>
+<h2>Link to a section</h2><p>Many renderers create heading anchors automatically, but exact slug generation varies. Use simple, unique headings and verify the link on the target platform.</p><h2>Document metadata</h2><p>Some documentation systems support YAML front matter, but it is an extension rather than standard Markdown.</p><pre><code>---
+title: Deployment Guide
+description: How to deploy the service
+---
+
+# Deployment Guide</code></pre><h2>Good documentation habits</h2><ul><li>Start with the reader's goal.</li><li>Use short paragraphs and descriptive headings.</li><li>Provide commands that can be copied without hidden characters.</li><li>State prerequisites and expected results.</li><li>Keep examples current and identify platform-specific behavior.</li><li>Test every link and command before publishing.</li></ul>`},
+{id:"troubleshooting",group:"Practical guides",title:"Troubleshooting",desc:"Fix common Markdown rendering surprises.",level:"Practical",body:`<h2>My heading renders as plain text</h2><p>Check that the hash characters are at the beginning of the line and followed by a space. A heading may also be inside a code fence or another block.</p><h2>My text is not bold or italic</h2><p>Check matching delimiters, whitespace near the delimiter, and whether the syntax is split across lines. Simplify the snippet and test in your target renderer.</p><h2>My list numbering looks wrong</h2><p>Markdown renderers often number ordered lists sequentially even if source numbers repeat or skip. Use consistent numbering for readability and test nested indentation.</p><h2>My table is not a table</h2><p>Pipe tables are an extension, commonly supported by GFM but not required by CommonMark. Confirm the renderer supports them and that the separator row is valid.</p><h2>My code block never ends</h2><p>Make sure the closing fence uses the same character and is at least as long as the opening fence. An unclosed fence can cause all following content to render as code.</p><h2>My image is missing</h2><p>Verify the path, capitalization, file extension, relative path base and whether the image is committed or publicly accessible.</p><h2>My HTML is missing or escaped</h2><p>Some platforms sanitize or disable raw HTML for security. Use the platform's supported components or plain Markdown instead.</p><h2>It looks different on another website</h2><p>Compare the implementations and enabled extensions. Use CommonMark-compatible syntax for portability and validate the final page where it will be published.</p>`},
+{id:"cheatsheet",group:"Reference",title:"Cheat sheet",desc:"A quick lookup of frequently used Markdown syntax.",level:"Reference",body:`<h2>Core syntax</h2><div class="example"><div><div class="label">Write</div><pre><code># Heading 1
+## Heading 2
+
+**bold**
+*italic*
+~~strikethrough~~
+
+- Item
+- Item
+
+1. First
+2. Second
+
+[Link](https://example.com)
+![Alt text](image.png)
+
+\`inline code\`
+
+\`\`\`bash
+echo "Hello"
+\`\`\`
+
+&gt; Quote
+
+---</code></pre></div><div><div class="label">Remember</div><div class="rendered"><h1>Heading 1</h1><h2>Heading 2</h2><p><b>bold</b><br><i>italic</i><br><del>strikethrough</del></p><ul><li>Item</li><li>Item</li></ul><ol><li>First</li><li>Second</li></ol><p><a href="#">Link</a><br>Image: alt text + path</p><p><code>inline code</code></p><pre>echo "Hello"</pre><blockquote>Quote</blockquote><hr></div></div></div><h2>Common extension syntax</h2><pre><code>| Column A | Column B |
+| --- | --- |
+| Value | Value |
+
+- [x] Completed
+- [ ] To do
+
+~~Removed text~~</code></pre><p>Tables, task lists and strikethrough are common in GFM but are not all part of CommonMark core.</p><h2>Quick reminders</h2><ul><li>Separate paragraphs with a blank line.</li><li>Put a space after heading hashes.</li><li>Use descriptive link text and useful alt text.</li><li>Use fenced blocks for commands and source code.</li><li>Check the target renderer for extensions.</li></ul>`},
+{id:"playground",group:"Practice",title:"Live playground",desc:"Write Markdown and preview the result locally in your browser.",level:"Interactive",body:`<p>Experiment with Markdown below. Your text is processed locally in this page; this proof of concept does not send it to a server. The built-in renderer supports common syntax including headings, emphasis, lists, links, images, blockquotes, code fences, rules and basic tables.</p><div class="callout"><b>Security note</b><br>The demo renderer escapes raw HTML rather than executing it. Do not treat this lightweight POC renderer as a production-grade Markdown engine.</div><div class="toolbar"><small id="count">0 characters</small><div><button class="btn secondary" id="reset">Reset</button> <button class="btn" id="copy">Copy source</button></div></div><div class="editor"><div><div class="label">Markdown source</div><textarea id="editor" spellcheck="false"># Hello, Markdown!
+
+Markdown makes plain text **easy to format**.
+
+## My checklist
+- [x] Learn headings
+- [ ] Practice links
+- [ ] Publish a README
+
+> Keep it readable.
+
+\`\`\`bash
+echo "Hello, world!"
+\`\`\`
+
+| Syntax | Use |
+| --- | --- |
+| \`#\` | Heading |
+| \`**text**\` | Bold |</textarea></div><div><div class="label">Live preview</div><div id="preview" class="rendered"></div></div></div>`}
+];
+const nav=document.getElementById('sidebar'),content=document.getElementById('content'),tocLinks=document.getElementById('tocLinks');
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+function buildNav(){let groups={};docs.forEach(d=>(groups[d.group]??=[]).push(d));nav.innerHTML=Object.entries(groups).map(([g,items])=>`<div class="navgroup"><h4>${g}</h4>${items.map(d=>`<button class="navbtn" data-id="${d.id}">${d.title}</button>`).join('')}</div>`).join('');nav.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>navigate(b.dataset.id))}
+function navigate(id){const d=docs.find(x=>x.id===id)||docs[0];content.innerHTML=d.id==='start'?d.body:`<div class="eyebrow">${d.group} · ${d.level}</div><h1 style="font-size:clamp(32px,4vw,44px);letter-spacing:-1.4px;line-height:1.15;margin:10px 0">${d.title}</h1><p style="color:var(--muted);font-size:17px">${d.desc}</p><div style="border-top:1px solid var(--line);margin:22px 0"></div>${d.body}<div class="footer"><div>Learning library · Markdown knowledge pack</div><p>Content is stored locally in this POC. Official references are provided for verification and further reading.</p><div style="display:flex;justify-content:space-between;gap:12px"><button class="btn secondary" onclick="navigate('${prev(d.id)}')">← Previous</button><button class="btn" onclick="navigate('${next(d.id)}')">Next →</button></div></div>`;nav.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.id===d.id));const hs=[...content.querySelectorAll('h2,h3')];tocLinks.innerHTML=hs.map((h,i)=>{h.id='section-'+i;return `<a href="#section-${i}">${esc(h.textContent)}</a>`}).join('');if(d.id==='playground')initPlayground();window.scrollTo({top:0,behavior:'smooth'});document.title=d.title+' — Markbase';document.getElementById('sidebar').classList.remove('open')}
+function prev(id){let i=docs.findIndex(d=>d.id===id);return docs[Math.max(0,i-1)].id}function next(id){let i=docs.findIndex(d=>d.id===id);return docs[Math.min(docs.length-1,i+1)].id}
+function markdown(src){src=src.replace(/\r/g,'');const blocks=[];src=src.replace(/```(\w*)\n([\s\S]*?)```/g,(_,lang,code)=>{blocks.push(`<pre><code>${esc(code.replace(/\n$/,''))}</code></pre>`);return `\n@@BLOCK${blocks.length-1}@@\n`});let lines=src.split('\n'),out=[],inUl=false,inOl=false,inQuote=false,inTable=false;function closeLists(){if(inUl){out.push('</ul>');inUl=false}if(inOl){out.push('</ol>');inOl=false}}function inline(s){return esc(s).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/__(.+?)__/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/_(.+?)_/g,'<em>$1</em>').replace(/~~(.+?)~~/g,'<del>$1</del>').replace(/!\[([^\]]*)\]\((https?:\/\/[^ )]+|[^ )]+)\)/g,'<img alt="$1" src="$2" style="max-width:100%">').replace(/\[([^\]]+)\]\((https?:\/\/[^ )]+)\)/g,'<a href="$2" target="_blank" rel="noreferrer">$1</a>')}
+for(let i=0;i<lines.length;i++){let l=lines[i],trim=l.trim();if(/^@@BLOCK\d+@@$/.test(trim)){closeLists();if(inQuote){out.push('</blockquote>');inQuote=false}out.push(blocks[+trim.match(/\d+/)[0]]);continue}if(!trim){closeLists();if(inQuote){out.push('</blockquote>');inQuote=false}inTable=false;continue}if(/^(\-{3,}|\*{3,}|_{3,})$/.test(trim)){closeLists();out.push('<hr>');continue}let hm=trim.match(/^(#{1,6})\s+(.+)$/);if(hm){closeLists();out.push(`<h${hm[1].length}>${inline(hm[2])}</h${hm[1].length}>`);continue}if(trim.startsWith('>')){closeLists();if(!inQuote){out.push('<blockquote>');inQuote=true}out.push(inline(trim.replace(/^>\s?/,''))+'<br>');continue}else if(inQuote){out.push('</blockquote>');inQuote=false}
+let um=trim.match(/^[-*+]\s+(.+)$/),om=trim.match(/^\d+[.)]\s+(.+)$/);if(um||om){if(um){if(inOl){out.push('</ol>');inOl=false}if(!inUl){out.push('<ul>');inUl=true}out.push('<li>'+inline(um[1].replace(/^\[([ xX])\]\s*/,m=>m[1].toLowerCase()==='x'?'☑ ':'☐ '))+'</li>')}else{if(inUl){out.push('</ul>');inUl=false}if(!inOl){out.push('<ol>');inOl=true}out.push('<li>'+inline(om[1])+'</li>')}continue}closeLists();
+if(trim.includes('|')&&i+1<lines.length&&/^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(lines[i+1])){let cells=s=>s.trim().replace(/^\||\|$/g,'').split('|').map(x=>x.trim());let heads=cells(trim);out.push('<table><thead><tr>'+heads.map(c=>'<th>'+inline(c)+'</th>').join('')+'</tr></thead><tbody>');i+=2;while(i<lines.length&&lines[i].includes('|')&&lines[i].trim()){out.push('<tr>'+cells(lines[i]).map(c=>'<td>'+inline(c)+'</td>').join('')+'</tr>');i++}out.push('</tbody></table>');i--;continue}
+out.push('<p>'+inline(trim)+'</p>')}closeLists();if(inQuote)out.push('</blockquote>');return out.join('\n')}
+function initPlayground(){const ed=document.getElementById('editor'),prev=document.getElementById('preview'),count=document.getElementById('count');if(!ed)return;const update=()=>{prev.innerHTML=markdown(ed.value);count.textContent=ed.value.length+' characters · '+ed.value.split(/\s+/).filter(Boolean).length+' words'};ed.oninput=update;update();document.getElementById('reset').onclick=()=>{ed.value='# Hello, Markdown!\n\nStart writing here.';update()};document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(ed.value);document.getElementById('copy').textContent='Copied!';setTimeout(()=>document.getElementById('copy').textContent='Copy source',1200)}catch{ed.select();document.execCommand('copy')}}}
+function showSearch(q){const results=docs.filter(d=>(d.title+' '+d.desc+' '+d.group+' '+d.body.replace(/<[^>]*>/g,' ')).toLowerCase().includes(q.toLowerCase()));content.innerHTML=`<div class="eyebrow">Knowledge search</div><h1>Search results</h1><p style="color:var(--muted)">Found ${results.length} topic${results.length===1?'':'s'} for “${esc(q)}”.</p>${results.length?results.map(d=>`<div class="result" data-id="${d.id}"><b>${d.title}</b><small>${d.group} · ${d.level}</small><p style="margin:4px 0;color:var(--muted)">${d.desc}</p></div>`).join(''):'<div class="empty">No matching topics yet. Try “links”, “table”, “code”, “GFM” or “README”.</div>'}`;content.querySelectorAll('[data-id]').forEach(x=>x.onclick=()=>navigate(x.dataset.id));tocLinks.innerHTML='';nav.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'))}
+buildNav();navigate('start');
+document.getElementById('search').addEventListener('input',e=>{const q=e.target.value.trim();if(q.length>=2)showSearch(q);else if(!q)navigate('start')});document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Escape'){e.target.value='';navigate('start')}if(e.key==='Enter'){const first=content.querySelector('[data-id]');if(first)first.click()}});document.getElementById('playTop').onclick=()=>navigate('playground');document.getElementById('menuBtn').onclick=()=>nav.classList.toggle('open');document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();document.getElementById('search').focus()}});
+</script>
+</body></html>
