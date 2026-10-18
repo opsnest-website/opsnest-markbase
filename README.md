@@ -1,26 +1,25 @@
-# Markbase — Markdown Learning Website (POC)
+# Markbase Studio
 
-A self-contained, responsive documentation website. No build tools, backend, database, external fonts, or network access are required for the core experience.
+A redesigned static learning website POC for Go, Python, Markdown and Shell scripting.
 
-## Run locally
-Open `index.html` in a modern browser, or serve the directory:
+## Run
+Open `index.html` in a browser, or run:
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Then open http://localhost:8080.
+Visit http://localhost:8080.
 
-## Included
-- Responsive documentation layout with sidebar navigation
-- Search across the locally bundled Markdown knowledge pack
-- Lessons: introduction, basic syntax, links/images, code/escaping, tables/task lists, advanced syntax, dialects, practical recipes, troubleshooting, cheat sheet
-- Local live Markdown playground with preview
-- Official reference links (CommonMark, GFM, GitHub docs)
-- Content bundled directly in the site for this POC
+## Features
+- Professional dashboard and responsive sidebar navigation
+- Four structured learning paths
+- Lesson pages with examples, knowledge-check quizzes and practice prompts
+- Browser-local lesson progress using localStorage
+- Cross-library search
+- Markdown playground with live preview and challenge starters
+- Official reference links for each subject
+- No backend or build step required
 
-## Notes
-- This is a frontend POC, not a production Markdown parser. The playground supports a useful subset and escapes raw HTML.
-- The initial knowledge pack is authored for learning and includes original explanations/examples. Official links are provided for verification and further reading.
-- Before production, consider using a maintained Markdown parser, add automated link/content checks, formal source/license metadata, tests, and a content contribution workflow.
-- Add future subjects as structured content records, rather than hard-coding each page into the layout.
+## Scope and production notes
+This is a richer front-end POC. The curricula and lessons are starter content, not exhaustive documentation. The Markdown playground implements a limited safe subset, not full CommonMark/GFM. For production, use a maintained parser, move lessons into separate Markdown/MDX files with metadata, test accessibility and search quality, and add automated link checks. Progress is saved only in the current browser and is not synchronized across devices.
