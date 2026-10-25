@@ -1,6 +1,6 @@
 # Create and Operate a Cluster
 
-Module overview: Create and Operate a Cluster covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Practice project preparation, API enablement, credentials, cluster creation, application deployment, state inspection, maintenance, and cost-aware teardown.
 
 ## Lessons
 

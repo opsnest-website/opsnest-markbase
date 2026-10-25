@@ -1,6 +1,6 @@
 # Kubernetes Foundations
 
-Module overview: Kubernetes Foundations covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Learn the core Kubernetes API objects and control loops, including how Pods are scheduled, how Services find endpoints, and how to diagnose failed workloads.
 
 ## Lessons
 

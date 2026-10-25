@@ -1,6 +1,6 @@
 # Infrastructure as Code
 
-Module overview: Infrastructure as Code covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Use Terraform to define Google Cloud infrastructure reproducibly, protect state, create reusable modules, separate environments, detect drift, and review safe changes.
 
 ## Lessons
 

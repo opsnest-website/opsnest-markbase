@@ -1,6 +1,6 @@
 # Observability and Troubleshooting
 
-Module overview: Observability and Troubleshooting covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Use logs, metrics, events, dashboards, alerts, SLOs, and resource diagnostics to connect platform signals to user impact and incident root cause.
 
 ## Lessons
 

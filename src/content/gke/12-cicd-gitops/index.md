@@ -1,6 +1,6 @@
 # CI/CD and GitOps
 
-Module overview: CI/CD and GitOps covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Build a traceable delivery path from source to immutable artifact, then validate, promote, reconcile, verify, and roll back deployments with controlled permissions.
 
 ## Lessons
 

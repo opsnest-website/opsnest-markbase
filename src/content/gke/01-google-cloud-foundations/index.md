@@ -1,6 +1,6 @@
 # Google Cloud Foundations
 
-Module overview: Google Cloud Foundations covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Learn the resource, identity, billing, API, location, quota, and VPC concepts that determine whether GKE resources can be created and reached.
 
 ## Lessons
 

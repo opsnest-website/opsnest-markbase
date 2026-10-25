@@ -1,6 +1,6 @@
 # Storage and Stateful Workloads
 
-Module overview: Storage and Stateful Workloads covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Choose ephemeral or persistent storage, understand PV/PVC/StorageClass relationships, compare backing services, operate StatefulSets, and practice recovery.
 
 ## Lessons
 

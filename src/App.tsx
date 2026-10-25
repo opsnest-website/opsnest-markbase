@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import Sidebar from "./components/Sidebar";
 import TopBar from "./components/TopBar";
-import { subjects } from "./data/subjects";
+import { subjects } from "../../temps/subjects";
 import { lessons, findLesson, lessonsForSubject } from "./data/lessons";
 import { useProgress } from "./hooks/useProgress";
 import HomePage from "./pages/HomePage";

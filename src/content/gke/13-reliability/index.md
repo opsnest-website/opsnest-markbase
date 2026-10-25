@@ -1,6 +1,6 @@
 # Reliability and Production Operations
 
-Module overview: Reliability and Production Operations covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Design for failure domains, controlled disruptions, maintenance, upgrades, compatibility, tested backups, measurable RTO/RPO, multi-cluster operations, and production readiness.
 
 ## Lessons
 

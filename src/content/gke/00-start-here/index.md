@@ -1,6 +1,6 @@
 # Start Here
 
-Module overview: Start Here covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Start with the service model, learner expectations, tools, isolation, and cost controls. Complete these pages before creating any cloud resources.
 
 ## Lessons
 

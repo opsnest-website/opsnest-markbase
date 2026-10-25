@@ -1,6 +1,6 @@
 # GKE Architecture
 
-Module overview: GKE Architecture covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Compare GKE operating modes, cluster locations, endpoints, node pools, release channels, lifecycle, and the capacity constraints that shape cluster design.
 
 ## Lessons
 

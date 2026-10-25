@@ -1,6 +1,6 @@
 # Autoscaling and Resource Management
 
-Module overview: Autoscaling and Resource Management covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Understand resource requests and scheduling, then distinguish Pod scaling, vertical resource recommendations, node scaling, Autopilot resource management, quota, GPU capacity, and cost-aware placement.
 
 ## Lessons
 

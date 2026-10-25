@@ -1,19 +1,3 @@
----
-title: "GKE: Zero to Expert"
-description: "A hands-on learning path from cloud and Kubernetes fundamentals to production Google Kubernetes Engine operations."
-slug: "gke-zero-to-expert"
-date: "2026-10-24"
-author: "OpsNest"
-category: "Cloud Native"
-tags:
-  - GKE
-  - Kubernetes
-  - Google Cloud
-  - DevOps
-draft: false
-published: true
----
-
 # GKE: Zero to Expert
 
 This course takes you from first principles to production-style GKE operations. Follow the modules in order, complete the labs in a dedicated learning project, and verify version-sensitive details against current official documentation.

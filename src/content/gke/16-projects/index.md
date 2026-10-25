@@ -1,6 +1,6 @@
 # Hands-On Projects and Capstone
 
-Module overview: Hands-On Projects and Capstone covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Apply the course concepts through progressively larger projects with explicit acceptance criteria, security controls, observability, rollback/recovery, and cleanup.
 
 ## Lessons
 

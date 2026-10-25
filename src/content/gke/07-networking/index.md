@@ -1,6 +1,6 @@
 # GKE Networking
 
-Module overview: GKE Networking covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Trace Pod and Service IP allocation, VPC-native networking, Service types, Ingress/Gateway routing, private access, DNS, network policy, NAT, TLS, and connectivity failures.
 
 ## Lessons
 

@@ -22,7 +22,7 @@ export default function HomePage({ subjects, progressCounts, completedCount, tot
         <div className="hero-content">
           <div className="eyebrow"><span className="eyebrow-dot" /> YOUR PERSONAL LEARNING WORKSPACE</div>
           <h1>Less searching.<br /><span>More building.</span></h1>
-          <p>Explore clear lessons, practice with interactive challenges, and build real skills in Go, Python, Markdown and Shell scripting — all in one focused learning library.</p>
+          <p>Explore clear lessons, practice with interactive challenges, and build real skills in Go, Python, Markdown Shell scripting and GKE — all in one focused learning library.</p>
           <div className="hero-actions">
             <button className="button button-primary" onClick={() => onOpenSubject("go")}>Start learning <ArrowRight size={16} /></button>
             <button className="button button-glass" onClick={onOpenPlayground}><Code2 size={16} /> Try Markdown playground</button>

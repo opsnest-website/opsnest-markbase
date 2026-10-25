@@ -16,16 +16,35 @@ export type Lesson = {
   path: string;
 };
 
+export type ContentLayout = "flat" | "nested";
+
+// export type Subject = {
+//   id: string;
+//   name: string;
+//   symbol: string;
+//   className: string;
+//   category: string;
+//   level: string;
+//   description: string;
+//   officialUrl: string;
+//   tutorialUrl: string;
+//   contentLayout?: ContentLayout;
+//   contentRoot?: string;
+// };
+
 export type Subject = {
   id: string;
   name: string;
   symbol: string;
+  icon?: string;
   className: string;
   category: string;
   level: string;
   description: string;
   officialUrl: string;
   tutorialUrl: string;
+  contentLayout?: "flat" | "nested";
+  contentRoot?: string;
 };
 
 export type PageState =

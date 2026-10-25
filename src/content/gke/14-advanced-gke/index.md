@@ -1,6 +1,6 @@
 # Advanced GKE
 
-Module overview: Advanced GKE covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Explore specialized compute, GPUs, topology, Gateway traffic management, service mesh, policy, multi-tenancy, network security, cost allocation, AI/ML, and operators.
 
 ## Lessons
 

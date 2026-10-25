@@ -1,6 +1,6 @@
 # Containers and Images
 
-Module overview: Containers and Images covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Understand the image-to-process lifecycle: build reproducible images, minimize runtime dependencies, configure ports and filesystems, and run with reduced privilege.
 
 ## Lessons
 

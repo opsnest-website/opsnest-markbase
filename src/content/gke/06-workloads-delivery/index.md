@@ -1,6 +1,6 @@
 # Workloads and Application Delivery
 
-Module overview: Workloads and Application Delivery covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Choose and operate release strategies, configuration and secret delivery, health and shutdown behavior, batch execution, and runtime failure diagnosis.
 
 ## Lessons
 

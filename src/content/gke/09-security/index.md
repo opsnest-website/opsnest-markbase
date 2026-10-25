@@ -1,6 +1,6 @@
 # Security and Identity
 
-Module overview: Security and Identity covers the concepts, operational practices, and hands-on work needed for GKE platform engineering.
+Separate Cloud IAM from Kubernetes RBAC, apply least privilege, use workload identity, manage secrets, harden workloads, verify artifacts, and review audit evidence.
 
 ## Lessons
 

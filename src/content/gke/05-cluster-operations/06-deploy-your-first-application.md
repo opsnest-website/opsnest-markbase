@@ -1,104 +1,67 @@
 ---
+id: deploy-your-first-application
+subject: gke
 title: "Deploy Your First Application"
-description: "A guided lesson on deploy your first application for Google Kubernetes Engine learners."
-slug: "deploy-your-first-application"
-date: "2026-10-24"
-author: "OpsNest"
-category: "GKE"
-tags:
-  - GKE
-  - Kubernetes
-  - DevOps
-draft: false
-published: true
+description: "Learn deploy your first application with a focused explanation, practical exercise, verification steps, and troubleshooting guidance."
+difficulty: Beginner
+order: 506
 ---
-
 # Deploy Your First Application
 
-## Learning objectives
+## What you will learn
 
-After this lesson, you should be able to:
-- Explain the purpose of **Deploy Your First Application** and where it fits into a GKE platform.
-- Identify the main Kubernetes and Google Cloud components involved.
-- Describe operational, security, availability, and cost trade-offs.
-- Plan a safe lab and verify its outcome.
+By the end of this lesson, you should be able to:
+- Explain the purpose and operational boundary of Deploy Your First Application.
+- Identify the relevant Kubernetes, GKE, or Google Cloud components and their responsibilities.
+- Apply the concept in a controlled environment and verify it with observable evidence.
+- Recognize the most likely failure modes and avoid unsafe production assumptions.
 
-## Conceptual model
+## Core concept
 
-Understand the topic at three layers:
+A basic GKE deployment needs an image, Deployment spec, sensible resource requests, health probes, labels, and a traffic exposure choice. A ClusterIP Service is safer for the first lab than creating a public load balancer.
 
-1. **Google Cloud:** projects, IAM, networking, quotas, billing, and managed services.
-2. **Kubernetes:** API objects, controllers, scheduling, networking, storage, and workload lifecycle.
-3. **Platform operations:** release workflows, reliability objectives, observability, security policies, and team ownership.
+## Decision points for Deploy Your First Application
 
-For **Deploy Your First Application**, explicitly identify which layer owns each behavior. Do not assume every Kubernetes behavior is GKE-specific, or that every Google Cloud resource is represented as a Kubernetes object.
+A basic GKE deployment needs an image, Deployment spec, sensible resource requests, health probes, labels, and a traffic exposure choice. The practical decision is to choose a configuration that satisfies the workload requirement without adding unsupported assumptions or unnecessary operational complexity. Confirm which component owns the behavior, what prerequisites apply, and what observable result will prove the design works.
 
-## Practical workflow
+## Practical exercise
 
-1. **Plan:** state the desired outcome, prerequisites, permissions, cost risks, and cleanup procedure.
-2. **Inspect:** confirm the active project, cluster context, namespace, and current resource state.
-3. **Implement:** use a reviewed manifest or documented command in a disposable learning environment.
-4. **Verify:** inspect resulting resource status and test the behavior, not just command success.
-5. **Troubleshoot:** collect events, logs, metrics, and configuration; test one hypothesis at a time.
-6. **Clean up:** remove lab resources and verify that billable resources are gone.
+Deploy a stateless sample to a test namespace, wait for rollout completion, verify ready replicas and Service endpoints, and perform a simple request. Capture the output before and after a controlled configuration change.
 
-## Useful inspection commands
+### Inspect and verify
 
 ```bash
-# Check the active cloud identity and project.
-gcloud auth list
-gcloud config get-value project
-
-# Confirm the Kubernetes context before making changes.
-kubectl config current-context
-kubectl get namespaces
-
-# Inspect common resources and recent events.
-kubectl get pods,deployments,services -n default
-kubectl get events -n default --sort-by=.metadata.creationTimestamp
+kubectl apply -f deployment.yaml
+kubectl rollout status deployment/sample
+kubectl get deploy,pods,svc
 ```
 
-These are inspection examples; cluster commands require valid credentials and context. Review all create, update, expose, and delete commands before execution.
+### Evidence to capture
 
-## Hands-on lab template
+For this lesson, save the output of `kubectl apply -f deployment.yaml` and explain how it supports (or contradicts) the expected behavior described above. Record the relevant resource name and timestamp, and note one alternative explanation you ruled out. The exercise is complete only when you can restore the starting state or explain why cleanup is not required.
 
-Complete the following lab in a dedicated learning project:
+## Failure modes and diagnosis
 
-- **Goal:** What behavior should you implement or observe?
-- **Prerequisites:** Which APIs, permissions, cluster features, and tools are needed?
-- **Implementation:** Record the manifest or command used.
-- **Verification:** Capture output that proves the expected result.
-- **Failure scenario:** Describe one safe failure case and the evidence it produces.
-- **Cleanup:** List all resources to delete and verify their removal.
-- **Production delta:** Identify additional controls needed before production use.
+Image pull failures, missing selectors, and readiness failures are distinct. Inspect events and logs instead of repeatedly reapplying unchanged YAML.
 
-Do not perform destructive tests on shared or production clusters.
 
-## Troubleshooting checklist
+## Security, reliability, and cost notes
 
-- Verify project, cluster context, namespace, resource names, and labels/selectors.
-- Review status, events, logs, and relevant metrics before changing configuration.
-- Validate YAML indentation, API versions, object references, and resource requests.
-- Check permissions, quotas, IP capacity, and scheduling constraints where relevant.
-- Determine whether the issue is in the application, Kubernetes, GKE, or another Google Cloud service.
-- Change one variable at a time and record what confirms or rejects each hypothesis.
+- Confirm project, region, and cluster context before any change; cluster creation, public exposure, and deletion can affect billing or availability.
+- Use a dedicated project and a written teardown list. Verify standalone disks, addresses, forwarding rules, and other cloud resources after cluster cleanup.
+- Check the official documentation below for current feature availability, CLI flags, IAM permissions, quotas, and pricing before production use.
 
 ## Knowledge check
 
-1. What problem does **Deploy Your First Application** solve?
-2. Which parts are managed by Google Cloud and which remain your responsibility?
-3. What evidence would you collect to diagnose a failure?
-4. What security, reliability, and cost risks should you evaluate?
-5. How will you verify success and clean up the lab?
+1. What specific behavior does **Deploy Your First Application** control, and which component owns it?
+2. What observable evidence would demonstrate that the configuration works?
+3. Name two plausible failure causes and the evidence you would collect to distinguish them.
+4. What is the safest way to test the concept and return the lab to its initial state?
 
-Write answers in your own words and validate version-sensitive details against the official documentation.
+## References
 
-## Further reading
-
-- [Google Kubernetes Engine documentation](https://cloud.google.com/kubernetes-engine/docs)
+- [Official documentation relevant to this module](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster)
 - [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-- [GKE best practices](https://cloud.google.com/kubernetes-engine/docs/best-practices)
+- [Google Kubernetes Engine documentation](https://cloud.google.com/kubernetes-engine/docs)
 
 ---
-
-*Content review date: 2026-10-24. Verify commands, pricing, quotas, feature availability, and recommended settings against current official documentation before production use.*
