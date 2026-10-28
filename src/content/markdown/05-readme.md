@@ -1,6 +1,7 @@
 ---
 id: readme
 subject: markdown
+order: 5
 title: README and troubleshooting
 description: Use Markdown in real project docs and diagnose rendering issues.
 difficulty: Intermediate

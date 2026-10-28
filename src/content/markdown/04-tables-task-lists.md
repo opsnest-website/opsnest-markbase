@@ -1,6 +1,7 @@
 ---
 id: tables-task-lists
 subject: markdown
+order: 4
 title: Tables, task lists and flavors
 description: Know common extensions and portability tradeoffs.
 difficulty: Intermediate

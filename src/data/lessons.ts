@@ -1,21 +1,25 @@
 import type { Lesson } from "../types";
-import { parseLesson } from "../lib/frontmatter";
 
-const lessonFiles = import.meta.glob("../content/**/*.md", {
+// Module index pages are navigation documents, not lessons.
+// Metadata is small and needed everywhere, so it is bundled eagerly.
+// See plugins/lessonContent.ts for how `?lesson-meta` and `?lesson-body` are produced.
+const lessonMeta = import.meta.glob<Lesson>(["../content/**/*.md", "!**/index.md"], {
   eager: true,
-  query: "?raw",
+  query: "?lesson-meta",
   import: "default",
-}) as Record<string, string>;
+});
 
-export const lessons: Lesson[] = Object.entries(lessonFiles)
-  // Module index pages are navigation documents, not lessons.
-  .filter(([path]) => !path.endsWith("/index.md"))
-  .map(([path, source]) => parseLesson(source, path))
-  .sort(
-    (a, b) =>
-      a.subjectId.localeCompare(b.subjectId) ||
-      a.order - b.order
-  );
+// Bodies are split into one chunk per lesson and fetched when the lesson is opened.
+const lessonBodies = import.meta.glob<string>(["../content/**/*.md", "!**/index.md"], {
+  query: "?lesson-body",
+  import: "default",
+});
+
+export const lessons: Lesson[] = Object.values(lessonMeta).sort(
+  (a, b) =>
+    a.subjectId.localeCompare(b.subjectId) ||
+    a.order - b.order
+);
 
 export function lessonsForSubject(subjectId: string) {
   return lessons.filter((lesson) => lesson.subjectId === subjectId);
@@ -27,4 +31,9 @@ export function findLesson(subjectId: string, lessonId: string) {
       lesson.subjectId === subjectId &&
       lesson.id === lessonId
   );
+}
+
+export function loadLessonBody(lesson: Lesson): Promise<string> {
+  const load = lessonBodies[`../content/${lesson.path}`];
+  return load ? load() : Promise.reject(new Error(`No content for ${lesson.path}`));
 }

@@ -1,6 +1,7 @@
 ---
 id: testing-security
 subject: shell
+order: 5
 title: Testing and security
 description: Use ShellCheck, syntax checks, safe inputs and repeatable automation.
 difficulty: Intermediate

@@ -1,4 +1,5 @@
-import { ArrowRight, BookOpen, Code2, GraduationCap, Search } from "lucide-react";
+import { useRef, useState } from "react";
+import { ArrowRight, BookOpen, Code2, Download, GraduationCap, Search, Upload } from "lucide-react";
 import type { Subject } from "../types";
 import SubjectCard from "../components/SubjectCard";
 
@@ -10,10 +11,19 @@ type Props = {
   onOpenSubject: (id: string) => void;
   onOpenPlayground: () => void;
   onFocusSearch: () => void;
+  onExportProgress: () => void;
+  onImportProgress: (file: File) => Promise<boolean>;
 };
 
-export default function HomePage({ subjects, progressCounts, completedCount, totalLessons, onOpenSubject, onOpenPlayground, onFocusSearch }: Props) {
+export default function HomePage({ subjects, progressCounts, completedCount, totalLessons, onOpenSubject, onOpenPlayground, onFocusSearch, onExportProgress, onImportProgress }: Props) {
   const percent = totalLessons ? Math.round(completedCount / totalLessons * 100) : 0;
+  const fileInput = useRef<HTMLInputElement>(null);
+  const [importStatus, setImportStatus] = useState("");
+  async function importFile(file: File | undefined) {
+    if (!file) return;
+    setImportStatus(await onImportProgress(file) ? "Progress imported." : "That file isn't a Markbase progress export.");
+    if (fileInput.current) fileInput.current.value = "";
+  }
   return (
     <>
       <div className="breadcrumb">Workspace <span>/</span> Dashboard</div>
@@ -50,7 +60,15 @@ export default function HomePage({ subjects, progressCounts, completedCount, tot
       </section>
       <section className="section">
         <div className="section-heading"><div><div className="eyebrow dark">YOUR MOMENTUM</div><h2>Progress that feels good</h2><p>Keep moving one lesson at a time.</p></div><span className="percent-badge">{percent}% complete</span></div>
-        <div className="progress-panel"><div className="progress-panel-top"><div><b>Overall learning progress</b><p>Completed lessons across all subjects</p></div><strong>{completedCount}<small> / {totalLessons}</small></strong></div><div className="progress-track"><span style={{ width: `${percent}%` }} /></div></div>
+        <div className="progress-panel"><div className="progress-panel-top"><div><b>Overall learning progress</b><p>Completed lessons across all subjects</p></div><strong>{completedCount}<small> / {totalLessons}</small></strong></div><div className="progress-track"><span style={{ width: `${percent}%` }} /></div>
+          <div className="progress-transfer">
+            <span>Progress is saved in this browser. Move it to another device:</span>
+            <button className="button button-light" onClick={onExportProgress}><Download size={15} /> Export</button>
+            <button className="button button-light" onClick={() => fileInput.current?.click()}><Upload size={15} /> Import</button>
+            <input ref={fileInput} type="file" accept="application/json,.json" hidden onChange={(event) => importFile(event.target.files?.[0])} />
+            {importStatus && <span role="status">{importStatus}</span>}
+          </div>
+        </div>
       </section>
       <footer className="footer"><span>Markbase Studio <span className="footer-dot">•</span> Independent learning library</span><span>Built to grow with your curiosity.</span></footer>
     </>

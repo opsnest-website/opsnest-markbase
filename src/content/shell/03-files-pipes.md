@@ -1,6 +1,7 @@
 ---
 id: files-pipes
 subject: shell
+order: 3
 title: Pipes, files and text processing
 description: Combine commands with redirection and Unix text tools.
 difficulty: Intermediate

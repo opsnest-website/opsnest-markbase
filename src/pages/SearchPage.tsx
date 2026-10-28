@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ArrowRight, Search } from "lucide-react";
 import type { Lesson, Subject } from "../types";
 
@@ -5,6 +6,15 @@ type Result = { subject: Subject; lesson: Lesson | null; title: string; descript
 type Props = { query: string; subjects: Subject[]; lessons: Lesson[]; onOpenSubject: (id: string) => void; onOpenLesson: (subjectId: string, lessonId: string) => void };
 
 export default function SearchPage({ query, subjects, lessons, onOpenSubject, onOpenLesson }: Props) {
+  // Full lesson text is a separate chunk, fetched the first time someone searches.
+  const [bodyText, setBodyText] = useState<Map<string, string> | null>(null);
+  useEffect(() => {
+    let active = true;
+    import("virtual:markbase-search").then(({ default: entries }) => {
+      if (active) setBodyText(new Map(entries.map((entry) => [entry.key, entry.text])));
+    }, () => {});
+    return () => { active = false; };
+  }, []);
   const q = query.toLowerCase();
   const results: Result[] = [];
   subjects.forEach((subject) => {
@@ -14,13 +24,13 @@ export default function SearchPage({ query, subjects, lessons, onOpenSubject, on
   });
   lessons.forEach((lesson) => {
     const subject = subjects.find((item) => item.id === lesson.subjectId);
-    if (subject && `${subject.name} ${lesson.title} ${lesson.description} ${lesson.content}`.toLowerCase().includes(q)) {
+    if (subject && `${subject.name} ${lesson.title} ${lesson.description} ${bodyText?.get(`${lesson.subjectId}/${lesson.id}`) ?? ""}`.toLowerCase().includes(q)) {
       results.push({ subject, lesson, title: lesson.title, description: lesson.description });
     }
   });
   return <>
     <div className="breadcrumb">Workspace <span>/</span> Search</div>
-    <div className="eyebrow dark">KNOWLEDGE SEARCH</div><h1 className="page-title">Find your answer.</h1><p className="page-subtitle">{results.length} results for <b>“{query}”</b></p>
+    <div className="eyebrow dark">KNOWLEDGE SEARCH</div><h1 className="page-title">Find your answer.</h1><p className="page-subtitle">{results.length} results for <b>“{query}”</b>{!bodyText && " · searching lesson text…"}</p>
     {results.length ? <div className="search-results">{results.map((result) => <button className="search-result" key={`${result.subject.id}/${result.lesson?.id ?? "course"}`} onClick={() => result.lesson ? onOpenLesson(result.subject.id, result.lesson.id) : onOpenSubject(result.subject.id)}><span className={`subject-symbol small ${result.subject.className}`}>{result.subject.symbol}</span><span className="search-result-content"><b>{result.title}</b><small>{result.subject.name} {result.lesson ? `· ${result.lesson.difficulty}` : "· Learning path"}</small><span>{result.description}</span></span><ArrowRight size={17} /></button>)}</div> : <div className="empty-state"><Search size={25} /><b>No matches yet</b><p>Try “functions”, “testing”, “links”, “quoting” or “concurrency”.</p></div>}
   </>;
 }

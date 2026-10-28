@@ -1,6 +1,7 @@
 ---
 id: robust-scripts
 subject: shell
+order: 4
 title: Processes, traps and robust errors
 description: Handle signals, cleanup, failures and safe dry runs.
 difficulty: Advanced

@@ -1,4 +1,4 @@
-import type { Lesson, Quiz } from "../types";
+import type { ParsedLesson, Quiz } from "../types";
 
 function parseScalar(value: string): string | number {
   const trimmed = value.trim();
@@ -10,7 +10,7 @@ function parseScalar(value: string): string | number {
 }
 
 /** Parses the intentionally small YAML-frontmatter subset used by lesson files. */
-export function parseLesson(source: string, path: string): Lesson {
+export function parseLesson(source: string, path: string): ParsedLesson {
   const match = source.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
   if (!match) throw new Error(`Missing frontmatter in ${path}`);
   const raw = match[1];

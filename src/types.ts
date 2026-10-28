@@ -12,9 +12,12 @@ export type Lesson = {
   difficulty: string;
   order: number;
   quiz: Quiz;
-  content: string;
+  /** Path relative to src/content, e.g. "gke/02-containers/01-intro.md". */
   path: string;
 };
+
+/** A lesson with its Markdown body. Bodies are loaded on demand, not bundled with the metadata. */
+export type ParsedLesson = Lesson & { content: string };
 
 export type ContentLayout = "flat" | "nested";
 

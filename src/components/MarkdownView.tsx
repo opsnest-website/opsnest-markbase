@@ -1,14 +1,21 @@
-import DOMPurify from "dompurify";
-import { marked } from "marked";
+import { renderMarkdown, type MarkdownDialect } from "../lib/markdown";
 
-marked.setOptions({ gfm: true, breaks: false });
+type Props = {
+  source: string;
+  className?: string;
+  dialect?: MarkdownDialect;
+};
 
-type Props = { source: string; className?: string };
-
-export default function MarkdownView({ source, className = "" }: Props) {
-  const html = DOMPurify.sanitize(marked.parse(source) as string, {
-    USE_PROFILES: { html: true },
-    ADD_ATTR: ["target", "rel"],
-  });
-  return <div className={`markdown-body ${className}`} dangerouslySetInnerHTML={{ __html: html }} />;
+export default function MarkdownView({
+  source,
+  className = "",
+  dialect = "gfm",
+}: Props) {
+  const html = renderMarkdown(source, dialect);
+  return (
+    <div
+      className={`markdown-body ${className}`}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
 }

@@ -1,14 +1,6 @@
-import {
-  BookOpen,
-  Code2,
-  FileText,
-  Home,
-  Terminal,
-  Cloud,
-  type LucideIcon,
-} from "lucide-react";
-
+import { BookOpen, FileText, Home } from "lucide-react";
 import type { PageState, Subject } from "../types";
+import LearningPathIcon from "./LearningPathIcon";
 
 type Props = {
   subjects: Subject[];
@@ -18,26 +10,6 @@ type Props = {
   open: boolean;
   onClose: () => void;
 };
-
-/**
- * Central icon registry.
- *
- * Icons are resolved using subject.id, never the subject's array position.
- * Add a mapping here only when a learning path needs a new icon.
- */
-const subjectIcons: Record<string, LucideIcon> = {
-  shell: Terminal,
-  markdown: FileText,
-  python: Code2,
-  go: Terminal,
-  gke: Cloud,
-};
-
-function LearningPathIcon({ subjectId }: { subjectId: string }) {
-  const Icon = subjectIcons[subjectId] ?? BookOpen;
-
-  return <Icon size={16} aria-hidden="true" />;
-}
 
 export default function Sidebar({
   subjects,
@@ -125,7 +97,7 @@ export default function Sidebar({
               }}
             >
               <span className={`nav-icon ${subject.className}`}>
-                <LearningPathIcon subjectId={subject.id} />
+                <LearningPathIcon subject={subject} />
               </span>
 
               <span className="nav-text">{subject.name}</span>
